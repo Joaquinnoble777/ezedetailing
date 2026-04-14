@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="EZE DETAILING - Taller de detailing automotriz premium. Promo apertura, precios de lanzamiento, reservá tu turno fácil por WhatsApp.">
+    <meta name="keywords" content="detailing, lavado premium, pulido ópticas, limpieza vapor, taller automotriz, EZE DETAILING">
+    <meta name="author" content="EZE DETAILING">
+    <title>EZE DETAILING | Detailing Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            scroll-behavior: smooth;
+            line-height: 1.5;
+        }
+
+        /* Scroll personalizado */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d32f2f;
+            border-radius: 10px;
+        }
+
+        /* Header fijo */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 2px solid #d32f2f;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #fff 30%, #d32f2f 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: #eee;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-menu a:hover {
+            color: #d32f2f;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            color: #d32f2f;
+            cursor: pointer;
+        }
+
+        /* Botón flotante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 25px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 999;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1607861712205-6f2d6e6b3e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            margin-top: 0;
+        }
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .hero .promo-badge {
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            color: #d32f2f;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #fff, #d32f2f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin: 1rem 0 2rem;
+            font-weight: 500;
+        }
+        .btn-red {
+            display: inline-block;
+            background: #d32f2f;
+            color: white;
+            padding: 1rem 2.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: 0.3s;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(211,47,47,0.4);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-red:hover {
+            background: #b71c1c;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(211,47,47,0.5);
+        }
+
+        /* Secciones generales */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #d32f2f;
+            margin: 0.6rem auto 0;
+        }
+
+        /* Cards servicios */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .card {
+            background: #111;
+            border-radius: 20px;
+            padding: 2rem;
+            width: 280px;
+            transition: 0.3s;
+            border: 1px solid #222;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            text-align: center;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #d32f2f;
+            box-shadow: 0 15px 30px rgba(211,47,47,0.2);
+        }
+        .card i {
+            font-size: 2.8rem;
+            color: #d32f2f;
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+        .price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #d32f2f;
+            margin: 1rem 0;
+        }
+        .card ul {
+            text-align: left;
+            list-style: none;
+            margin-top: 1rem;
+        }
+        .card ul li {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card ul li i {
+            font-size: 0.8rem;
+            color: #d32f2f;
+        }
+
+        /* Beneficios / proceso */
+        .benefits-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .benefit-item {
+            background: #111;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            width: 260px;
+            border-bottom: 3px solid #d32f2f;
+        }
+
+        /* Galería */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: 0.3s;
+            filter: brightness(0.8);
+            border: 1px solid #2a2a2a;
+        }
+        .gallery img:hover {
+            transform: scale(1.02);
+            filter: brightness(1);
+            border-color: #d32f2f;
+        }
+
+        /* Testimonios */
+        .testimonials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .testimonial-card {
+            background: #111;
+            padding: 1.8rem;
+            border-radius: 20px;
+            width: 300px;
+            transition: 0.3s;
+        }
+        .stars {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+        .testimonial-card p {
+            font-style: italic;
+        }
+        .client-name {
+            margin-top: 1rem;
+            font-weight: 700;
+            color: #d32f2f;
+        }
+
+        /* Formulario */
+        .contact-form {
+            background: #0f0f0f;
+            padding: 2rem;
+            border-radius: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid #222;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            transition: 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #d32f2f;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: #030303;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #d32f2f;
+        }
+        .social-links a {
+            color: white;
+            font-size: 1.8rem;
+            margin: 0 1rem;
+            transition: 0.3s;
+        }
+        .social-links a:hover {
+            color: #d32f2f;
+        }
+
+        /* Responsive */
+        @media (max-width: 950px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                background: #000000dd;
+                backdrop-filter: blur(12px);
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                transition: 0.3s;
+                gap: 1.8rem;
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            section {
+                padding: 3rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Fijo -->
+<header class="header">
+    <div class="nav-container">
+        <div class="logo">EZE DETAILING</div>
+        <div class="menu-icon" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#promo">Promo Apertura</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#testimonios">Testimonios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- Botón flotante WhatsApp -->
+<a href="https://wa.me/59892214516?text=Hola%20EZE%20DETAILING%20%F0%9F%9A%98%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios%20premium." class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Hero Section -->
+<section id="inicio" class="hero">
+    <div class="hero-content">
+        <div class="promo-badge">🔥 PROMO APERTURA 🔥</div>
+        <h1>EZE DETAILING</h1>
+        <p>Precios lanzamiento por tiempo limitado · Calidad premium deportiva</p>
+        <a href="#contacto" class="btn-red" id="heroBtn">Reservar por WhatsApp</a>
+    </div>
+</section>
+
+<!-- Servicios con precios -->
+<section id="servicios">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <div class="cards-container">
+        <!-- Lavado Premium -->
+        <div class="card">
+            <i class="fas fa-car-wash"></i>
+            <h3>Lavado Premium</h3>
+            <div class="price">$1200</div>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Espuma activa</li>
+                <li><i class="fas fa-check-circle"></i> Limpieza profunda</li>
+                <li><i class="fas fa-check-circle"></i> Plásticos y cubiertas renovados</li>
+                <li><i class="fas fa-check-circle"></i> Aromatización premium</li>
+            </ul>
+        </div>
+        <!-- Pulido de ópticas -->
+        <div class="card">
+            <i class="fas fa-eye"></i>
+            <h3>Pulido de ópticas</h3>
+            <div class="price">$2000</div>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Restauración faros opacos</li>
+                <li><i class="fas fa-check-circle"></i> Mejor visibilidad nocturna</li>
+                <li><i class="fas fa-check-circle"></i> Mejora estética total</li>
+            </ul>
+        </div>
+        <!-- Butacas con vapor -->
+        <div class="card">
+            <i class="fas fa-couch"></i>
+            <h3>Butacas con vapor</h3>
+            <div class="price">$2000</div>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Eliminación de manchas</li>
+                <li><i class="fas fa-check-circle"></i> Limpieza profunda con vapor</li>
+                <li><i class="fas fa-check-circle"></i> Eliminación de olores</li>
+            </ul>
+        </div>
+        <!-- Motor con vapor -->
+        <div class="card">
+            <i class="fas fa-microchip"></i>
+            <h3>Motor con vapor</h3>
+            <div class="price">$5000</div>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Desengrase profesional</li>
+                <li><i class="fas fa-check-circle"></i> Protección de componentes</li>
+                <li><i class="fas fa-check-circle"></i> Acabado impecable</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ¿Qué hacemos en el taller? (beneficios) -->
+<section id="promo">
+    <h2 class="section-title">¿Qué hacemos en el taller?</h2>
+    <div class="benefits-grid">
+        <div class="benefit-item"><i class="fas fa-tachometer-alt" style="font-size:2rem; color:#d32f2f"></i><h3>Alta performance</h3><p>Tecnología de espuma activa y vapor industrial</p></div>
+        <div class="benefit-item"><i class="fas fa-shield-alt" style="font-size:2rem; color:#d32f2f"></i><h3>Cuidado extremo</h3><p>Productos premium para pintura y interiores</p></div>
+        <div class="benefit-item"><i class="fas fa-clock" style="font-size:2rem; color:#d32f2f"></i><h3>Puntualidad</h3><p>Entregas en tiempo récord sin perder calidad</p></div>
+        <div class="benefit-item"><i class="fas fa-hand-sparkles" style="font-size:2rem; color:#d32f2f"></i><h3>Detalle profesional</h3><p>Acabados de exhibición, como auto 0km</p></div>
+    </div>
+</section>
+
+<!-- Galería (placeholders estilo taller) -->
+<section id="galeria">
+    <h2 class="section-title">Galería</h2>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1607861712205-6f2d6e6b3e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Auto brillante con espuma">
+        <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pulido de pintura">
+        <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Limpieza de butacas">
+        <img src="https://images.unsplash.com/photo-1621341318697-1066a16e98c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Motor limpio con vapor">
+    </div>
+</section>
+
+<!-- Testimonios ficticios -->
+<section id="testimonios">
+    <h2 class="section-title">Testimonios</h2>
+    <div class="testimonials">
+        <div class="testimonial-card"><div class="stars">★★★★★</div><p>"Increíble servicio, dejaron mi auto como nuevo. El lavado premium es brutal."</p><div class="client-name">- Santiago M.</div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><p>"Recuperaron los faros opacos, ahora se ve espectacular. Muy profesionales."</p><div class="client-name">- Camila R.</div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><p>"Limpieza de motor con vapor impecable. Volveré para las butacas."</p><div class="client-name">- Matías L.</div></div>
+    </div>
+</section>
+
+<!-- Contacto + Formulario que redirige a WhatsApp -->
+<section id="contacto">
+    <h2 class="section-title">Reservá tu turno</h2>
+    <div class="contact-form">
+        <form id="reserveForm">
+            <div class="form-group">
+                <label>Nombre y Apellido</label>
+                <input type="text" id="nombre" placeholder="Juan Pérez" required>
+            </div>
+            <div class="form-group">
+                <label>Teléfono</label>
+                <input type="tel" id="telefono" placeholder="099 123 456" required>
+            </div>
+            <div class="form-group">
+                <label>Vehículo (marca/modelo)</label>
+                <input type="text" id="vehiculo" placeholder="Ej: Audi A3 2020" required>
+            </div>
+            <div class="form-group">
+                <label>Servicio a elegir</label>
+                <select id="servicioSelect" required>
+                    <option value="Lavado Premium - $1200">Lavado Premium - $1200</option>
+                    <option value="Pulido de ópticas - $2000">Pulido de ópticas - $2000</option>
+                    <option value="Butacas con vapor - $2000">Butacas con vapor - $2000</option>
+                    <option value="Motor con vapor - $5000">Motor con vapor - $5000</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Fecha deseada</label>
+                <input type="date" id="fecha" required>
+            </div>
+            <div class="form-group">
+                <label>Mensaje adicional</label>
+                <textarea rows="3" id="mensaje" placeholder="Algún detalle extra..."></textarea>
+            </div>
+            <button type="submit" class="btn-red" style="width:100%">Enviar y Reservar</button>
+        </form>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="social-links">
+        <a href="https://instagram.com/ezedetailing" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/59892214516" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p style="margin-top:1rem">📞 092 214 516 | @ezedetailing</p>
+    <p style="margin-top:1rem; font-size:0.8rem;">© 2025 EZE DETAILING - Detailing de alto rendimiento</p>
+</footer>
+
+<script>
+    // Menú Hamburguesa
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+    // Cerrar menú al hacer click en un enlace
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // Función para formatear el mensaje de WhatsApp con los datos del formulario
+    function buildWhatsAppMessage(data) {
+        let msg = `Hola EZE DETAILING 👋, quiero reservar un turno.%0A%0A`;
+        msg += `📌 *Datos del cliente*:%0A`;
+        msg += `👤 Nombre: ${data.nombre}%0A`;
+        msg += `📞 Teléfono: ${data.telefono}%0A`;
+        msg += `🚗 Vehículo: ${data.vehiculo}%0A%0A`;
+        msg += `🛠 *Servicio solicitado*: ${data.servicio}%0A`;
+        msg += `📅 Fecha deseada: ${data.fecha}%0A`;
+        if (data.mensaje && data.mensaje.trim() !== "") {
+            msg += `💬 Mensaje adicional: ${data.mensaje}%0A%0A`;
+        }
+        msg += `✅ Por favor, confirmar disponibilidad. ¡Muchas gracias!`;
+        return msg;
+    }
+
+    // Manejo del formulario: redirige a WhatsApp con el mensaje prearmado
+    const form = document.getElementById('reserveForm');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Obtener valores
+        const nombre = document.getElementById('nombre').value.trim();
+        const telefono = document.getElementById('telefono').value.trim();
+        const vehiculo = document.getElementById('vehiculo').value.trim();
+        const servicio = document.getElementById('servicioSelect').value;
+        const fecha = document.getElementById('fecha').value;
+        const mensaje = document.getElementById('mensaje').value.trim();
+
+        if (!nombre || !telefono || !vehiculo || !fecha) {
+            alert("Por favor completa todos los campos obligatorios.");
+            return;
+        }
+
+        // Validación simple de teléfono (básica)
+        if (telefono.length < 6) {
+            alert("Ingresá un número de teléfono válido.");
+            return;
+        }
+
+        const formData = {
+            nombre: nombre,
+            telefono: telefono,
+            vehiculo: vehiculo,
+            servicio: servicio,
+            fecha: fecha,
+            mensaje: mensaje
+        };
+
+        const messageText = buildWhatsAppMessage(formData);
+        // Número fijo: +598 92 214 516 (código país 598)
+        const phoneNumber = "59892214516";
+        const waLink = `https://wa.me/${phoneNumber}?text=${messageText}`;
+
+        // Abrir WhatsApp en nueva pestaña
+        window.open(waLink, '_blank');
+
+        // Opcional: resetear formulario o notificar
+        alert("¡Gracias! Serás redirigido a WhatsApp para confirmar el turno.");
+        // Se puede resetear pero dejamos los datos por si acaso
+        // form.reset(); (opcional comentado)
+    });
+
+    // Botón hero redirige a contacto + smooth scroll
+    const heroBtn = document.getElementById('heroBtn');
+    if (heroBtn) {
+        heroBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    // Efecto de scroll suave a los enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === "#" || targetId === "") return;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
