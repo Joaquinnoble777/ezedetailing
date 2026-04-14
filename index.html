@@ -119,27 +119,56 @@
             background-color: #128C7E;
         }
 
-        /* Hero Section */
+        /* Hero Section con Video de fondo */
         .hero {
+            position: relative;
             min-height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1607861712205-6f2d6e6b3e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
             display: flex;
             align-items: center;
             text-align: center;
             padding: 0 2rem;
+            overflow: hidden;
             margin-top: 0;
         }
+        
+        /* Video de fondo */
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        
+        /* Overlay oscuro para mejorar legibilidad */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: 1;
+        }
+        
         .hero-content {
+            position: relative;
             max-width: 900px;
             margin: 0 auto;
+            z-index: 2;
         }
+        
         .hero .promo-badge {
             font-size: 1.2rem;
             letter-spacing: 4px;
             color: #d32f2f;
             font-weight: 700;
             margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
+        
         .hero h1 {
             font-size: 4rem;
             font-weight: 900;
@@ -149,11 +178,14 @@
             background-clip: text;
             color: transparent;
         }
+        
         .hero p {
             font-size: 1.3rem;
             margin: 1rem 0 2rem;
             font-weight: 500;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
+        
         .btn-red {
             display: inline-block;
             background: #d32f2f;
@@ -267,6 +299,10 @@
             text-align: center;
             width: 260px;
             border-bottom: 3px solid #d32f2f;
+            transition: 0.3s;
+        }
+        .benefit-item:hover {
+            transform: translateY(-5px);
         }
 
         /* Galería */
@@ -303,6 +339,10 @@
             border-radius: 20px;
             width: 300px;
             transition: 0.3s;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-left: 3px solid #d32f2f;
         }
         .stars {
             color: #FFD700;
@@ -390,8 +430,25 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
+            .hero p {
+                font-size: 1rem;
+            }
             section {
                 padding: 3rem 1.2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Ajuste para móviles muy pequeños */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .btn-red {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
             }
         }
     </style>
@@ -421,8 +478,15 @@
     <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- Hero Section -->
+<!-- Hero Section con Video de fondo -->
 <section id="inicio" class="hero">
+    <!-- Video de fondo - Video de muestra de detailing automotriz premium -->
+    <video class="hero-video" autoplay loop muted playsinline>
+        <source src="/WhatsApp Video 2026-04-14 at 11.51.36 AM.mp4" type="video/mp4">
+        <!-- Fallback: si el video no carga, se muestra un fondo negro -->
+        Tu navegador no soporta videos HTML5.
+    </video>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
         <div class="promo-badge">🔥 PROMO APERTURA 🔥</div>
         <h1>EZE DETAILING</h1>
@@ -612,7 +676,7 @@
             return;
         }
 
-        // Validación simple de teléfono (básica)
+        // Validación simple de teléfono
         if (telefono.length < 6) {
             alert("Ingresá un número de teléfono válido.");
             return;
@@ -628,17 +692,15 @@
         };
 
         const messageText = buildWhatsAppMessage(formData);
-        // Número fijo: +598 92 214 516 (código país 598)
+        // Número fijo: +598 92 214 516
         const phoneNumber = "59892214516";
         const waLink = `https://wa.me/${phoneNumber}?text=${messageText}`;
 
         // Abrir WhatsApp en nueva pestaña
         window.open(waLink, '_blank');
 
-        // Opcional: resetear formulario o notificar
+        // Notificar al usuario
         alert("¡Gracias! Serás redirigido a WhatsApp para confirmar el turno.");
-        // Se puede resetear pero dejamos los datos por si acaso
-        // form.reset(); (opcional comentado)
     });
 
     // Botón hero redirige a contacto + smooth scroll
